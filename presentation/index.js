@@ -8,7 +8,6 @@ import {
   List,
   Slide,
   Text,
-  CodePane,
   Notes
 } from 'spectacle';
 
@@ -70,26 +69,6 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck contentHeight={1000} contentWidth={1150} theme={theme}>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="primary"
-        >
-          <CodePane
-            lang="jsx"
-            // eslint-disable-next-line import/no-unresolved
-            source={require('raw-loader!../assets/deck.example')}
-            margin="20px auto"
-            overflow="overflow"
-          />
-          <Notes>
-            <ul>
-              <li>talk about that</li>
-              <li>and that</li>
-              <li>and then this</li>
-            </ul>
-          </Notes>
-        </Slide>
         <CodeSlide
           transition={['fade']}
           lang="jsx"
@@ -127,6 +106,14 @@ export default class Presentation extends React.Component {
           <Text margin="10px 0 0" textColor="secondary" size={1} fit bold>
             Workshop: introduction and setup
           </Text>
+
+          <Notes>
+            <ul>
+              <li>talk about that</li>
+              <li>and that</li>
+              <li>and then this</li>
+            </ul>
+          </Notes>
         </Slide>
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
@@ -140,6 +127,21 @@ export default class Presentation extends React.Component {
             <ListItem>Interactive setup demo</ListItem>
             <ListItem>Workshop - setup your own project</ListItem>
           </List>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading size={1} textColor="primary">
+          Storybook
+          </Heading>
+          <List textColor="secondary">
+            <ListItem>Project maturity and active community</ListItem>
+            <ListItem>Straightforward to setup and maintain</ListItem>
+            <ListItem>Hot module reload (even for functional stateless components)</ListItem>
+            <ListItem>Allows to inspect events related to your components</ListItem>
+            <ListItem>Allows to edit React props dynamically using the Storybook UI</ListItem>
+            <ListItem>Integrates Jest snapshot testing for all stories</ListItem>
+            <ListItem>Possibility to further customization via Addons</ListItem>
+          </List>
+
         </Slide>
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">

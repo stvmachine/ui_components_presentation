@@ -1,121 +1,57 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { Icon } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+---
+name: Button
+menu: Components
+---
 
-const ChannelWrapper = styled.div`
-  grid-column: 2;
-  grid-row: 1 / 4;
-  background-color: #4e3a4c;
-  color: #958993;
-`;
+import { Playground, PropsTable } from 'docz'
+import { Button } from './Button'
 
-const TeamNameHeader = styled.h1`
-  color: #fff;
-  font-size: 20px;
-`;
+# Button
 
-const SideBarList = styled.ul`
-  width: 100%;
-  list-style: none;
-  padding-left: 0px;
-`;
+Buttons make common actions more obvious and help users more easily perform them. Buttons use labels and sometimes icons to communicate the action that will occur when the user touches them.
 
-const paddingLeft = 'padding-left: 10px';
+### Best practices
 
-const SideBarListItem = styled.li`
-  padding: 2px;
-  ${paddingLeft};
-  &:hover {
-    background: #3e313c;
-  }
-`;
+- Group buttons logically into sets based on usage and importance.
+- Ensure that button actions are clear and consistent.
+- The main action of a group set can be a primary button.
+- Select a single button variation and do not mix them.
 
-const SideBarListHeader = styled.li`${paddingLeft};`;
+## Properties
 
-const PushLeft = styled.div`${paddingLeft};`;
+<PropsTable of={Button} />
 
-const Green = styled.span`color: #38978d;`;
+## Basic usage
 
-const Bubble = ({ on = true }) => (on ? (
-  <Green>
-    ●
-  </Green>
-) : '○');
+<Playground>
+  <Button>Click me</Button>
+</Playground>
 
-const channel = ({ id, name }, teamId) => (
-  <Link key={`channel-${id}`} to={`/team/${teamId}/${id}`}>
-    <SideBarListItem>
-      {`# ${name}`}
-    </SideBarListItem>
-  </Link>
-);
+## With different sizes
 
-const user = ({ id, name }) => (
-  <SideBarListItem key={`user-${id}`}>
-    <Bubble />
-    {name}
-  </SideBarListItem>
-);
+<Playground>
+  <Button scale="small">Click me</Button>
+  <Button scale="normal">Click me</Button>
+  <Button scale="big">Click me</Button>
+</Playground>
 
-const Channels = ({
-  teamName, userName, channels, users, onAddChannelClick, teamId,
-}) => (
-  <ChannelWrapper>
-    <PushLeft>
-      <TeamNameHeader>
-        {teamName}
-      </TeamNameHeader>
-      {userName}
-    </PushLeft>
-    <div>
-      <SideBarList>
-        <SideBarListHeader>
-          Channels
-          {' '}
-          <Icon onClick={onAddChannelClick} name="add circle" />
-        </SideBarListHeader>
-        {channels.map(c => channel(c, teamId))}
-      </SideBarList>
-    </div>
-    <div>
-      <SideBarList>
-        <SideBarListHeader>
-          Direct Messages
-        </SideBarListHeader>
-        {users.map(user)}
-      </SideBarList>
-    </div>
-  </ChannelWrapper>
-);
+## With different colors
 
-user.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-};
-channel.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-};
+<Playground>
+  <Button kind="primary">Click me</Button>
+  <Button kind="secondary">Click me</Button>
+  <Button kind="cancel">Click me</Button>
+  <Button kind="dark">Click me</Button>
+  <Button kind="gray">Click me</Button>
+</Playground>
 
-Channels.propTypes = {
-  teamName: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
-  teamId: PropTypes.number.isRequired,
-  channels: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  users: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  onAddChannelClick: PropTypes.func.isRequired,
-};
+## Outlined
 
-export default Channels;
+<Playground>
+  <Button kind="primary" outline>Click me</Button>
+  <Button kind="secondary" outline>Click me</Button>
+  <Button kind="cancel" outline>Click me</Button>
+  <Button kind="dark" outline>Click me</Button>
+  <Button kind="gray" outline>Click me</Button>
+</Playground>
+
