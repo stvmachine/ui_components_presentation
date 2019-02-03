@@ -1,7 +1,7 @@
 import React from "react";
 
 // Import Spectacle Core tags
-import { Deck, Heading, ListItem, List, Slide, Text, Notes } from "spectacle";
+import { Appear, Deck, Heading, ListItem, List, Slide, Text, Notes } from "spectacle";
 
 import Terminal from "spectacle-terminal";
 import Typist from "react-typist";
@@ -21,7 +21,14 @@ const images = {
   buildStorybook: require("../assets/build-storybook.png"),
   customWebpack: require("../assets/custom-webpack.png"),
   folderStructure: require("../assets/folder-structure.png"),
-  storybookIntro: require("../assets/storybook-intro.gif")
+  storybookIntro: require("../assets/storybook-intro.gif"),
+  //logos
+  reactLogo: require("../assets/logos/react_logo.png"),
+  vueLogo: require("../assets/logos/vue_logo.png"),
+  angularLogo: require("../assets/logos/angular_logo.png"),
+
+  //
+  storeFrontAndWorkshopGroups: require("../assets/storefront_and_workshop.png"),
 };
 preloader({
   images
@@ -63,52 +70,125 @@ export default class Presentation extends React.Component {
       <Deck contentHeight={1000} contentWidth={1150} theme={theme}>
         <Slide {...slideProps} transition={["zoom"]}>
           <Heading size={1} fit caps lineHeight={1} textColor="primary">
-            {`Styleguids & playgrounds`}
+            {`Workshop vs Storefront`}
           </Heading>
           <Text margin="10px 0 0" textColor="secondary" size={1} fit bold>
             why we need more tools?
           </Text>
-
+  
           <Notes>
+            <h3>Why we need more tools?</h3>
             <ul>
-              <li>talk about that</li>
-              <li>and that</li>
-              <li>and then this</li>
+              <li>browser developer tools</li>
+              <li>code editor</li>
+              <li>and lots of coffee</li>
+              <li>so, why do you need more tools</li>
             </ul>
           </Notes>
         </Slide>
+        <Slide {...slideProps}>
+          <Heading size={2} fit caps lineHeight={1} textColor="primary">
+           Motivation
+          </Heading>
+          <List textColor="secondary">
+            <Appear fid="1">
+              <ListItem>Transition of <b>page</b> to <b>component</b> development:
+                <div style={{marginTop: "20px", marginBottom: "20px", display: "flex", alignItems: "center", justifyContent:"center"}}>
+                  <img src={images.reactLogo} height="150px" style={{objectFit: "cover"}}/>
+                  <img src={images.vueLogo} height="110px" style={{marginRight: "15px"}}/>
+                  <img src={images.angularLogo} height="150px"/>
+                </div>
+              </ListItem>
+            </Appear>
+
+            <Appear fid="2">
+              <ListItem> <b>Component-Driven Development (CDD):</b> “bottom up” construction from components to pages</ListItem>
+            </Appear>
+
+            <Appear fid="2">
+              <ListItem>
+                <b>Component Explorers:</b> Tools to work with a single component in isolation.
+              </ListItem>
+            </Appear>
+          </List>
+
+          <Notes>
+            <ul>
+              <li>Trend in frontend UI development towards <b>components</b></li>
+              <li>React, Angular 2, Vue has established patterns for building UIs out of well specified components parts</li>
+
+              <li>
+              Component-Driven Development (CDD) is a development methodology that anchors the build process around components. It is a process that builds UIs from the “bottom up” by starting at the level of components and ending at the level of pages or screens.
+              </li>
+              <li>
+              {`So rather than building a component “on-site” of the app screen where it is first used, you use a tool that isolates the one component.`}
+              </li>
+            </ul>
+          </Notes>
+        </Slide>
+
+        <Slide {...slideProps}>
+        {/* <Appear>
+  <div></div>
+          <div style={{background: "white"}}>
+            <img src={images.storeFrontAndWorkshopGroups}/>
+          </div>
+          </Appear> */}
+           <Appear fid="1">
+            <Heading size={1} caps fit textColor="primary">
+              Full Width
+            </Heading>
+          </Appear>
+          <Appear fid="2">
+            <Heading size={1} caps fit textColor="tertiary">
+              Adjustable Darkness
+            </Heading>
+          </Appear>
+          <Appear fid="3">
+            <Heading size={1} caps fit textColor="primary">
+              Background Imagery
+            </Heading>
+          </Appear>
+        </Slide>
+
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
             Agenda
           </Heading>
           <List textColor="secondary">
             <ListItem>Style guide and playgrounds</ListItem>
-            <ListItem>What it is available</ListItem>
-            <ListItem>Storybook</ListItem>
-            <ListItem>Docz</ListItem>
-            <ListItem>React cosmos</ListItem>
+            <ListItem>What it is available:
+              <List>
+                <ListItem>Storybook</ListItem>
+                <ListItem>Docz</ListItem>
+                <ListItem>React cosmos</ListItem>
+              </List>
+            </ListItem>
+            
           </List>
         </Slide>
+        
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
             Storybook
           </Heading>
           <List textColor="secondary">
-            <ListItem>Project maturity and active community</ListItem>
+            <ListItem>The most widely adopted UI component tool</ListItem>
+            <ListItem>Good for solo and teams </ListItem>
+            <ListItem>Allows building UI components in isolation (without APIs, others components e.g: pages )</ListItem>
+            <ListItem> </ListItem>
+            {/* <ListItem>Project maturity and active community</ListItem>
             <ListItem>Straightforward to setup and maintain</ListItem>
             <ListItem>
-              Hot module reload (even for functional stateless components)
+              Hot module reload
             </ListItem>
             <ListItem>
-              Allows to inspect events related to your components
-            </ListItem>
-            <ListItem>
-              Allows to edit React props dynamically using the Storybook UI
+              Posible to test events and edit props
             </ListItem>
             <ListItem>
               Integrates Jest snapshot testing for all stories
             </ListItem>
-            <ListItem>Possibility to further customization via Addons</ListItem>
+            <ListItem>Possibility to further customization via Addons</ListItem> */}
           </List>
         </Slide>
         <Slide {...slideProps}>
