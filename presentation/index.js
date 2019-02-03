@@ -15,20 +15,34 @@ import "normalize.css";
 import "./style.css";
 
 const images = {
+  //logos FE
+  reactLogo: require("../assets/logos/react_logo.png"),
+  vueLogo: require("../assets/logos/vue_logo.png"),
+  angularLogo: require("../assets/logos/angular_logo.png"),
+
+  //Explanation 
+  storeFrontAndWorkshopGroups: require("../assets/storefront_and_workshop.png"),
+
+  //logos UI components tools
+  doczLogo: require("../assets/logos/docz.svg"),
+  reactCosmosLogo: require("../assets/logos/react_cosmos.png"),
+  reactStyleguidistLogo: require("../assets/logos/react_styleguidist.svg"),
+  storybookLogo: require("../assets/logos/storybook.svg"),
+
+  //storybook
   advancedConfig: require("../assets/advanced-config.png"),
   basicConfig: require("../assets/basic-config.png"),
   basicStory: require("../assets/basic-story.png"),
   buildStorybook: require("../assets/build-storybook.png"),
   customWebpack: require("../assets/custom-webpack.png"),
   folderStructure: require("../assets/folder-structure.png"),
-  storybookIntro: require("../assets/storybook-intro.gif"),
-  //logos
-  reactLogo: require("../assets/logos/react_logo.png"),
-  vueLogo: require("../assets/logos/vue_logo.png"),
-  angularLogo: require("../assets/logos/angular_logo.png"),
 
-  //
-  storeFrontAndWorkshopGroups: require("../assets/storefront_and_workshop.png"),
+  //examples
+  storybookIntro: require("../assets/storybook-intro.gif"),
+  doczExample: require("../assets/docz_example.png"),
+  reactStyleguidistExample: require("../assets/react_styleguidist_example.gif"),
+  reactCosmosExample: require("../assets/react_cosmos_example.gif"),
+
 };
 preloader({
   images
@@ -134,24 +148,32 @@ export default class Presentation extends React.Component {
             <img src={images.storeFrontAndWorkshopGroups}/>
           </div>
           </Appear> */}
+
+<Heading size={1} caps fit textColor="primary">
+          Components Explorers
+</Heading>
+
            <Appear fid="1">
-            <Heading size={1} caps fit textColor="primary">
-              Full Width
-            </Heading>
+           <div style={{marginTop: "30px"}}>
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <img src={images.reactStyleguidistLogo} height="300px"/>
+
+                  <img src={images.storybookLogo} height="110px" />
+            </div>
+
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center"  }}>
+
+            <img src={images.doczLogo} height="110px" style={{paddingRight:"40px"}}/>
+
+            <img src={images.reactCosmosLogo} height="180px"/>
+            </div>
+            </div>
+
           </Appear>
-          <Appear fid="2">
-            <Heading size={1} caps fit textColor="tertiary">
-              Adjustable Darkness
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={1} caps fit textColor="primary">
-              Background Imagery
-            </Heading>
-          </Appear>
+        
         </Slide>
 
-        <Slide {...slideProps}>
+        {/* <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
             Agenda
           </Heading>
@@ -166,7 +188,7 @@ export default class Presentation extends React.Component {
             </ListItem>
             
           </List>
-        </Slide>
+        </Slide> */}
         
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
