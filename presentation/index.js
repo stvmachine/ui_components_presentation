@@ -42,18 +42,18 @@ const images = {
   storybookLogo: require('../assets/logos/storybook.svg'),
 
   // storybook
-  advancedConfig: require('../assets/advanced-config.png'),
-  basicConfig: require('../assets/basic-config.png'),
-  basicStory: require('../assets/basic-story.png'),
-  buildStorybook: require('../assets/build-storybook.png'),
-  customWebpack: require('../assets/custom-webpack.png'),
-  folderStructure: require('../assets/folder-structure.png'),
+  advancedConfig: require('../assets/storybook/advanced-config.png'),
+  basicConfig: require('../assets/storybook/basic-config.png'),
+  basicStory: require('../assets/storybook/basic-story.png'),
+  buildStorybook: require('../assets/storybook/build-storybook.png'),
+  customWebpack: require('../assets/storybook/custom-webpack.png'),
+  folderStructure: require('../assets/storybook/folder-structure.png'),
 
   // examples
-  storybookIntro: require('../assets/storybook-intro.gif'),
-  doczExample: require('../assets/docz_example.png'),
-  reactStyleguidistExample: require('../assets/react_styleguidist_example.gif'),
-  reactCosmosExample: require('../assets/react_cosmos_example.gif')
+  storybookIntro: require('../assets/storybook/storybook-intro.gif'),
+  doczExample: require('../assets/docz/docz_example.png'),
+  reactStyleguidistExample: require('../assets/styleguidist/react_styleguidist_example.gif'),
+  reactCosmosExample: require('../assets/cosmos/react_cosmos_example.gif')
 };
 preloader({
   images
@@ -530,7 +530,7 @@ export default class Presentation extends React.Component {
           lang="jsx"
           textSize=".8em"
           // eslint-disable-next-line import/no-unresolved
-          code={require('raw-loader!../assets/deck.example')}
+          code={require('raw-loader!../assets/docz/code-example')}
           ranges={[
             {
               loc: [0, 270],
@@ -656,7 +656,7 @@ export default class Presentation extends React.Component {
           ]}
           lang="jsx"
           // eslint-disable-next-line import/no-unresolved
-          code={require('raw-loader!../assets/cosmos/example')}
+          code={require('raw-loader!../assets/cosmos/code-example')}
         />
       </Deck>
     );
