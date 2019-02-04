@@ -9,7 +9,8 @@ import {
   List,
   Slide,
   Text,
-  Notes
+  Notes,
+  CodePane
 } from 'spectacle';
 
 import Terminal from 'spectacle-terminal';
@@ -173,7 +174,9 @@ export default class Presentation extends React.Component {
                 level of components and ending at the level of pages or screens.
               </li>
               <li>
-                {'So rather than building a component “on-site” of the app screen where it is first used, you use a tool that isolates the one component.'}
+                {
+                  'So rather than building a component “on-site” of the app screen where it is first used, you use a tool that isolates the one component.'
+                }
               </li>
             </ul>
           </Notes>
@@ -528,6 +531,55 @@ export default class Presentation extends React.Component {
             { loc: [37, 47] },
             { loc: [47, 57] }
           ]}
+        />
+
+        {/* React Cosmos Slides*/}
+        <Slide {...slideProps} transition={['zoom']}>
+          <Heading size={2} fit caps lineHeight={1} textColor="primary">
+            {'Fixture react-cosmos'}
+          </Heading>
+          <CodePane
+            lang="json"
+            textSize="24px"
+            source={`
+          {
+            props: {}
+            url: '/dashboard',
+            
+            localStorage: {
+              name: 'Dan'
+            },
+            
+            reduxState: {},
+            
+            fetch: [
+              {
+                matcher: '/api/login',
+                response: {
+                  name: 'Dan'
+                }
+              }
+            ]
+          }
+          `}
+          />
+        </Slide>
+
+        <CodeSlide
+          textSize=".8em"
+          ranges={[
+            {
+              loc: [0, 17],
+              title: 'Cosmos loves Jest'
+            },
+            { loc: [0, 5] },
+            { loc: [5, 10] },
+            { loc: [10, 17],
+              title: 'It\'s possible to test urls too' }
+          ]}
+          lang="jsx"
+          // eslint-disable-next-line import/no-unresolved
+          code={require('raw-loader!../assets/cosmos/example')}
         />
       </Deck>
     );

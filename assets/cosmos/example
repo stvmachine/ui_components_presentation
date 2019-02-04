@@ -1,0 +1,16 @@
+import createTestContext from 'react-cosmos-test/enzyme';
+import fixture from './logged-in.fixture';
+
+const { mount, getWrapper, get } = createTestContext({ fixture });
+
+beforeEach(mount);
+
+test('welcomes logged in user by name', () => {
+  expect(getWrapper('.welcome').text()).toContain('Dan');
+});
+
+test('redirects to home page after signing out', () => {
+  getWrapper('.logout-btn').simulate('click');
+
+  expect(get('url')).toBe('/');
+});
