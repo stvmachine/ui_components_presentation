@@ -36,11 +36,31 @@ const images = {
   angularLogo: require('../assets/logos/angular_logo.png'),
 
   // CDD
-  cdd1: require('../assets/CDD/1.png'),
-  cdd2: require('../assets/CDD/2.png'),
-  cdd3: require('../assets/CDD/3.png'),
+  // eslint-disable-next-line camelcase
+  cdd1_1: require('../assets/CDD/1-1.png'),
+  // eslint-disable-next-line camelcase
+  cdd1_2: require('../assets/CDD/1-2.png'),
+  // eslint-disable-next-line camelcase
+  cdd2_1: require('../assets/CDD/2-1.png'),
+  // eslint-disable-next-line camelcase
+  cdd2_2: require('../assets/CDD/2-2.png'),
+  // eslint-disable-next-line camelcase
+  cdd2_3: require('../assets/CDD/2-3.png'),
+  // eslint-disable-next-line camelcase
+  cdd2_4: require('../assets/CDD/2-4.png'),
+  // eslint-disable-next-line camelcase
+  cdd2_5: require('../assets/CDD/2-5.png'),
+  // eslint-disable-next-line camelcase
+  cdd3_1: require('../assets/CDD/3-1.png'),
+  // eslint-disable-next-line camelcase
+  cdd3_2: require('../assets/CDD/3-2.png'),
+  // eslint-disable-next-line camelcase
+  cdd3_3: require('../assets/CDD/3-3.png'),
+  // eslint-disable-next-line camelcase
+  cdd3_4: require('../assets/CDD/3-4.png'),
   cdd4: require('../assets/CDD/4.png'),
   cdd5: require('../assets/CDD/5.png'),
+  cdd6: require('../assets/CDD/6.png'),
 
   // Explanation Components Explorers
   storeFrontAndWorkshopGroups: require('../assets/storefront_and_workshop.png'),
@@ -205,24 +225,102 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide {...slideProps}>
-          <Heading size={3} textColor="primary">
+          <Heading
+            size={3}
+            textColor="primary"
+            style={{ marginBottom: '20px' }}
+          >
             1. Identity
           </Heading>
-          <img src={images.cdd1} height="600px" />
+          <div style={{ display: 'flex',
+            justifyContent: 'space-between' }}
+          >
+            <img
+              src={images.cdd1_1}
+              height="600px"
+              style={{ marginRight: '20px' }}
+            />
+            <img src={images.cdd1_2} height="600px" />
+          </div>
         </Slide>
 
         <Slide {...slideProps}>
-          <Heading size={3} textColor="primary">
-            2. Element
+          <Heading
+            size={3}
+            textColor="primary"
+            style={{ marginBottom: '20px' }}
+          >
+            2. Elements
           </Heading>
-          <img src={images.cdd2} height="500px" />
+          <div style={{ display: 'flex',
+            justifyContent: 'space-between' }}
+          >
+            <img src={images.cdd2_1} height="200px" style={{ margin: '5px' }} />
+          </div>
+          <div style={{ display: 'flex',
+            justifyContent: 'space-between' }}
+          >
+            <img src={images.cdd2_2} height="300px" style={{ margin: '5px' }} />
+            <div style={{ display: 'flex',
+              flexDirection: 'column' }}
+            >
+              <img
+                src={images.cdd2_3}
+                height="100px"
+                style={{ margin: '5px' }}
+              />
+              <img
+                src={images.cdd2_5}
+                height="150px"
+                style={{ margin: '5px' }}
+              />
+            </div>
+          </div>
+          <div style={{ display: 'flex' }}>
+            <img
+              src={images.cdd2_4}
+              height="100px"
+              style={{ margin: '5px',
+                objectFit: 'contain' }}
+            />
+          </div>
         </Slide>
 
         <Slide {...slideProps}>
-          <Heading size={3} textColor="primary">
+          <Heading
+            size={3}
+            textColor="primary"
+            style={{ marginBottom: '20px' }}
+          >
             3. Components
           </Heading>
-          <img src={images.cdd3} height="600px" />
+          <div style={{ display: 'flex',
+            flexDirection: 'column' }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <img
+                src={images.cdd3_2}
+                height="500px"
+                style={{ objectFit: 'contain',
+                  marginRight: '10px' }}
+              />
+              <div style={{ display: 'flex',
+                flexDirection: 'column' }}
+              >
+                <img
+                  src={images.cdd3_4}
+                  height="500px"
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+            </div>
+          </div>
         </Slide>
 
         <Slide {...slideProps}>
@@ -233,10 +331,25 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide {...slideProps}>
-          <Heading size={3} textColor="primary">
+          <Heading
+            size={3}
+            textColor="primary"
+            style={{ marginBottom: '50px' }}
+          >
             5. Layout
           </Heading>
-          <img src={images.cdd5} height="600px" />
+          <img src={images.cdd5} height="320px" />
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading
+            size={3}
+            textColor="primary"
+            style={{ marginBottom: '30px' }}
+          >
+            6. Page
+          </Heading>
+          <img src={images.cdd6} height="700px" />
         </Slide>
 
         <Slide {...slideProps}>
