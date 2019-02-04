@@ -10,12 +10,13 @@ import {
   Slide,
   Text,
   Notes,
-  CodePane
+  CodePane,
+  S
 } from 'spectacle';
 
-import Terminal from 'spectacle-terminal';
-import Typist from 'react-typist';
-import { ScaleLoader } from 'react-spinners';
+// import Terminal from 'spectacle-terminal';
+// import Typist from 'react-typist';
+// import { ScaleLoader } from 'react-spinners';
 import CodeSlide from 'spectacle-code-slide';
 import preloader from 'spectacle/lib/utils/preloader';
 import createTheme from 'spectacle/lib/themes/default';
@@ -64,16 +65,16 @@ const slideProps = {
   transition: ['fade']
 };
 
-const cursor = {
-  show: false,
-  blink: true,
-  element: '|',
-  hideWhenDone: false,
-  hideWhenDoneDelay: 1000
-};
+// const cursor = {
+//   show: false,
+//   blink: true,
+//   element: '|',
+//   hideWhenDone: false,
+//   hideWhenDoneDelay: 1000
+// };
 
-const Tick = () => <span style={{ color: '#33B969' }}>✓</span>;
-const Info = () => <span style={{ color: '#33B969' }}>info</span>;
+// const Tick = () => <span style={{ color: '#33B969' }}>✓</span>;
+// const Info = () => <span style={{ color: '#33B969' }}>info</span>;
 
 const theme = createTheme(
   {
@@ -93,12 +94,19 @@ export default class Presentation extends React.Component {
     return (
       <Deck contentHeight={1000} contentWidth={1150} theme={theme}>
         <Slide {...slideProps} transition={['zoom']}>
-          <Heading size={1} fit caps lineHeight={1} textColor="primary">
-            {'Workshop vs Storefront'}
-          </Heading>
-          <Text margin="10px 0 0" textColor="secondary" size={1} fit bold>
-            why we need more tools?
-          </Text>
+          <Appear fid="1">
+            <Heading size={1} fit caps lineHeight={1} textColor="primary">
+              {'Workshop vs Storefront'}
+            </Heading>
+          </Appear>
+          <Appear fid="1">
+            <div>
+              <Text margin="10px 0 0" textColor="secondary" size={1} fit bold>
+                why we need more tools?
+                <EmojioneV4 text=":tired_face:" />
+              </Text>
+            </div>
+          </Appear>
 
           <Notes>
             <h3>Why we need more tools?</h3>
@@ -141,21 +149,6 @@ export default class Presentation extends React.Component {
                 </div>
               </ListItem>
             </Appear>
-
-            <Appear fid="2">
-              <ListItem>
-                {' '}
-                <b>Component-Driven Development (CDD):</b> “bottom up”
-                construction from components to pages
-              </ListItem>
-            </Appear>
-
-            <Appear fid="2">
-              <ListItem>
-                <b>Component Explorers:</b> Tools to work with a single
-                component in isolation.
-              </ListItem>
-            </Appear>
           </List>
 
           <Notes>
@@ -184,6 +177,21 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide {...slideProps}>
+          <Heading textColor="primary" size={2}>
+            Benefits:
+          </Heading>
+          <List>
+            <ListItem>Break-down complexity</ListItem>
+            <ListItem>Isolate from bussiness logic</ListItem>
+            <ListItem>Increase reusability of components</ListItem>
+            <ListItem>More easy to test and debug</ListItem>
+            <ListItem>
+              <EmojioneV4 text=":sunglasses: Speed projects" />
+            </ListItem>
+          </List>
+        </Slide>
+
+        <Slide {...slideProps}>
           {/* <Appear>
   <div></div>
           <div style={{background: "white"}}>
@@ -196,7 +204,14 @@ export default class Presentation extends React.Component {
           </Heading>
 
           <Appear fid="1">
-            <div style={{ marginTop: '30px' }}>
+            <Text>
+              <S type="bold">Definition:</S> Tools to work with a single
+              component in isolation.
+            </Text>
+          </Appear>
+
+          <Appear fid="2">
+            <div>
               <div
                 style={{
                   display: 'flex',
@@ -204,7 +219,7 @@ export default class Presentation extends React.Component {
                   alignItems: 'center'
                 }}
               >
-                <img src={images.reactStyleguidistLogo} height="300px" />
+                <img src={images.reactStyleguidistLogo} height="250px" />
 
                 <img src={images.storybookLogo} height="110px" />
               </div>
@@ -256,7 +271,6 @@ export default class Presentation extends React.Component {
               Allows building UI components in isolation (without APIs, others
               components e.g: pages )
             </ListItem>
-            <ListItem />
             {/* <ListItem>Project maturity and active community</ListItem>
             <ListItem>Straightforward to setup and maintain</ListItem>
             <ListItem>
@@ -271,14 +285,14 @@ export default class Presentation extends React.Component {
             <ListItem>Possibility to further customization via Addons</ListItem> */}
           </List>
         </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary">
+        {/* <Slide {...slideProps}>
+          <Heading size={2} textColor="primary">
             What is Storybook?
           </Heading>
-          <Text margin="20px 0 0" textColor="secondary" size={2} fit>
+          <Text margin="20px" textColor="secondary" size={3} fit>
             UI development environment to visualize components
           </Text>
-          <img src={images.storybookIntro} height="650px" />
+          <img src={images.storybookIntro} height="450px" />
         </Slide>
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
@@ -460,7 +474,7 @@ export default class Presentation extends React.Component {
           <Heading size={1} textColor="primary">
             Configuration
           </Heading>
-        </Slide>
+          </Slide>*/}
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary" margin="0 0 50px">
             Folder structure
@@ -473,29 +487,43 @@ export default class Presentation extends React.Component {
           </Heading>
           <img src={images.basicStory} width="100%" />
         </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 50px">
+        {/* <Slide {...slideProps}>
+          <Heading size={1} textColor="primary" margin="0 0 30px">
             Sample config
           </Heading>
           <img src={images.basicConfig} />
         </Slide>
         <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 50px">
+          <Heading size={1} textColor="primary" margin="0 0 30px">
             Advanced config
           </Heading>
-          <img src={images.advancedConfig} width="100%" />
+          <img src={images.advancedConfig} width="100%"/>
         </Slide>
         <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 50px">
+          <Heading size={1} textColor="primary" margin="0 0 30px">
             Custom webpack
           </Heading>
           <img src={images.customWebpack} width="100%" />
         </Slide>
         <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 50px">
+          <Heading size={1} textColor="primary" margin="0 0 30px">
             Static export
           </Heading>
           <img src={images.buildStorybook} width="100%" />
+          </Slide>*/}
+
+        {/* Docz Slides */}
+        <Slide {...slideProps}>
+          <img
+            src={images.doczLogo}
+            height="110px"
+            style={{ objectFit: 'cover' }}
+          />
+          <img
+            src={images.doczExample}
+            width="100%"
+            style={{ objectFit: 'cover' }}
+          />
         </Slide>
         <CodeSlide
           transition={['fade']}
@@ -535,6 +563,54 @@ export default class Presentation extends React.Component {
         />
 
         {/* React Cosmos Slides*/}
+        <Slide {...slideProps}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Heading size={3} textColor="primary" style={{ margin: '0' }}>
+              React-cosmos
+            </Heading>
+            <img
+              src={images.reactCosmosLogo}
+              height="120px"
+              style={{ marginLeft: '50px' }}
+            />
+          </div>
+          <img
+            src={images.reactCosmosExample}
+            width="100%"
+            style={{ objectFit: 'cover' }}
+          />
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading size={3}>
+            <Text textColor="primary" textSize="72px">
+              Cosmos is
+            </Text>
+            <S type="bold" textColor="secondary">
+              dev tool first
+            </S>
+            <EmojioneV4 text=":construction_worker: " />{' '}
+          </Heading>
+          <List>
+            <ListItem>
+              Allows any combination of props, context and state
+            </ListItem>
+            <ListItem>
+              Mock every external dependency (eg. API responses, localStorage,
+              etc)
+            </ListItem>
+            <ListItem>
+              See app state evolve in real-time while interacting with running
+              instances
+            </ListItem>
+          </List>
+        </Slide>
         <Slide {...slideProps} transition={['zoom']}>
           <Heading size={2} fit caps lineHeight={1} textColor="primary">
             {'Fixture react-cosmos'}
@@ -571,7 +647,7 @@ export default class Presentation extends React.Component {
           ranges={[
             {
               loc: [0, 17],
-              title: <EmojioneV4 text="Cosmos :heart: jest" size={32} />
+              title: <EmojioneV4 text="Cosmos :heart: enzyme" size={32} />
             },
             { loc: [0, 5] },
             { loc: [5, 10] },
