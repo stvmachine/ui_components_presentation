@@ -19,6 +19,7 @@ import { ScaleLoader } from 'react-spinners';
 import CodeSlide from 'spectacle-code-slide';
 import preloader from 'spectacle/lib/utils/preloader';
 import createTheme from 'spectacle/lib/themes/default';
+import { EmojioneV4 } from 'react-emoji-render';
 
 // Require CSS
 import 'normalize.css';
@@ -570,7 +571,7 @@ export default class Presentation extends React.Component {
           ranges={[
             {
               loc: [0, 17],
-              title: 'Cosmos loves Jest'
+              title: <EmojioneV4 text="Cosmos :heart: jest" size={32} />
             },
             { loc: [0, 5] },
             { loc: [5, 10] },
