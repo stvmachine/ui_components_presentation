@@ -27,12 +27,22 @@ import 'normalize.css';
 import './style.css';
 
 const images = {
+  // personal info
+  personalInfo: require('../assets/personal-info.png'),
+
   // logos FE
   reactLogo: require('../assets/logos/react_logo.png'),
   vueLogo: require('../assets/logos/vue_logo.png'),
   angularLogo: require('../assets/logos/angular_logo.png'),
 
-  // Explanation
+  // CDD
+  cdd1: require('../assets/CDD/1.png'),
+  cdd2: require('../assets/CDD/2.png'),
+  cdd3: require('../assets/CDD/3.png'),
+  cdd4: require('../assets/CDD/4.png'),
+  cdd5: require('../assets/CDD/5.png'),
+
+  // Explanation Components Explorers
   storeFrontAndWorkshopGroups: require('../assets/storefront_and_workshop.png'),
 
   // logos UI components tools
@@ -51,9 +61,14 @@ const images = {
 
   // examples
   storybookIntro: require('../assets/storybook/storybook-intro.gif'),
+  storybookExample: require('../assets/storybook/storybook-example.png'),
   doczExample: require('../assets/docz/docz_example.png'),
   reactStyleguidistExample: require('../assets/styleguidist/react_styleguidist_example.gif'),
-  reactCosmosExample: require('../assets/cosmos/react_cosmos_example.gif')
+  reactCosmosExample: require('../assets/cosmos/react_cosmos_example.gif'),
+
+  // monkey island references
+  dailyFarmer: require('../assets/daily_farmer.gif'),
+  monkeyIslandFire: require('../assets/monkey-island.gif')
 };
 preloader({
   images
@@ -96,7 +111,7 @@ export default class Presentation extends React.Component {
         <Slide {...slideProps} transition={['zoom']}>
           <Appear fid="1">
             <Heading size={1} fit caps lineHeight={1} textColor="primary">
-              {'Workshop vs Storefront'}
+              {'UI Components explorers'}
             </Heading>
           </Appear>
           <Appear fid="1">
@@ -118,6 +133,13 @@ export default class Presentation extends React.Component {
             </ul>
           </Notes>
         </Slide>
+        <Slide
+          transition={['slide']}
+          bgColor="background"
+          bgImage={images.personalInfo}
+          bgSize="cover"
+          bgRepeat="no-repeat"
+        />
         <Slide {...slideProps}>
           <Heading size={2} fit caps lineHeight={1} textColor="primary">
             Motivation
@@ -149,6 +171,12 @@ export default class Presentation extends React.Component {
                 </div>
               </ListItem>
             </Appear>
+            <Appear fid="2">
+              <ListItem>
+                <S type="bold">Bottom up construction:</S> Identity ->
+                Elements-> Components-> Composition -> Layout -> Pages
+              </ListItem>
+            </Appear>
           </List>
 
           <Notes>
@@ -177,17 +205,68 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide {...slideProps}>
-          <Heading textColor="primary" size={2}>
-            Benefits:
+          <Heading size={3} textColor="primary">
+            1. Identity
+          </Heading>
+          <img src={images.cdd1} height="600px" />
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading size={3} textColor="primary">
+            2. Element
+          </Heading>
+          <img src={images.cdd2} height="500px" />
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading size={3} textColor="primary">
+            3. Components
+          </Heading>
+          <img src={images.cdd3} height="600px" />
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading size={3} textColor="primary">
+            4. Composition
+          </Heading>
+          <img src={images.cdd4} height="600px" />
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading size={3} textColor="primary">
+            5. Layout
+          </Heading>
+          <img src={images.cdd5} height="600px" />
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading textColor="primary" lineHeight={2} size={2}>
+            Benefits
           </Heading>
           <List>
-            <ListItem>Break-down complexity</ListItem>
-            <ListItem>Isolate from bussiness logic</ListItem>
-            <ListItem>Increase reusability of components</ListItem>
-            <ListItem>More easy to test and debug</ListItem>
-            <ListItem>
-              <EmojioneV4 text=":sunglasses: Speed projects" />
-            </ListItem>
+            <Appear fid={1}>
+              <ListItem>
+                Break-down complexity <EmojioneV4 text=":bread: :thumbsdown:" />
+              </ListItem>
+            </Appear>
+            <Appear fid={2}>
+              <ListItem>Isolate from bussiness logic 🏝️</ListItem>
+            </Appear>
+            <Appear fid={3}>
+              <ListItem>
+                Increase reusability of components <EmojioneV4 text=":link:" />
+              </ListItem>
+            </Appear>
+            <Appear fid={4}>
+              <ListItem>
+                More easy to test and debug <EmojioneV4 text=":mag_right:" />
+              </ListItem>
+            </Appear>
+            <Appear fid={5}>
+              <ListItem>
+                <EmojioneV4 text="Speed projects :running:" />
+              </ListItem>
+            </Appear>
           </List>
         </Slide>
 
@@ -262,27 +341,17 @@ export default class Presentation extends React.Component {
 
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
-            Storybook
+            Storybook <EmojioneV4 text=":crown:" />
           </Heading>
           <List textColor="secondary">
-            <ListItem>The most widely adopted UI component tool</ListItem>
-            <ListItem>Good for solo and teams </ListItem>
+            <ListItem>The most widely adopted</ListItem>
+            <ListItem>Project mature and active community</ListItem>
             <ListItem>
-              Allows building UI components in isolation (without APIs, others
-              components e.g: pages )
-            </ListItem>
-            {/* <ListItem>Project maturity and active community</ListItem>
-            <ListItem>Straightforward to setup and maintain</ListItem>
-            <ListItem>
-              Hot module reload
+              <b>Highly customizable</b> via Addons
             </ListItem>
             <ListItem>
-              Posible to test events and edit props
+              Integrates <b>Jest</b> snapshot testing for all stories
             </ListItem>
-            <ListItem>
-              Integrates Jest snapshot testing for all stories
-            </ListItem>
-            <ListItem>Possibility to further customization via Addons</ListItem> */}
           </List>
         </Slide>
         {/* <Slide {...slideProps}>
@@ -474,18 +543,25 @@ export default class Presentation extends React.Component {
           <Heading size={1} textColor="primary">
             Configuration
           </Heading>
-          </Slide>*/}
+          </Slide>
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary" margin="0 0 50px">
             Folder structure
           </Heading>
           <img src={images.folderStructure} />
-        </Slide>
+        </Slide>*/}
         <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 50px">
+          <Heading size={1} textColor="primary" margin="0 0 20px">
             Writing a story
           </Heading>
           <img src={images.basicStory} width="100%" />
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading size={1} textColor="primary" margin="0 0 20px">
+            Result
+          </Heading>
+          <img src={images.storybookExample} width="100%" />
         </Slide>
         {/* <Slide {...slideProps}>
           <Heading size={1} textColor="primary" margin="0 0 30px">
@@ -657,6 +733,14 @@ export default class Presentation extends React.Component {
           lang="jsx"
           // eslint-disable-next-line import/no-unresolved
           code={require('raw-loader!../assets/cosmos/code-example')}
+        />
+
+        <Slide
+          transition={['slide']}
+          bgColor="background"
+          bgImage={images.dailyFarmer}
+          bgSize="contain"
+          bgRepeat="no-repeat"
         />
       </Deck>
     );
