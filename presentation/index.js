@@ -25,10 +25,12 @@ import { EmojioneV4 } from 'react-emoji-render';
 // Require CSS
 import 'normalize.css';
 import './style.css';
+import './animation.css';
 
 const images = {
   // personal info
-  personalInfo: require('../assets/personal-info.png'),
+  personalInfo2: require('../assets/personal-info-v2.png'),
+  octonaut: require('../assets/octonaut.svg'),
 
   // logos FE
   reactLogo: require('../assets/logos/react_logo.png'),
@@ -63,12 +65,12 @@ const images = {
   cdd6: require('../assets/CDD/6.png'),
 
   // Explanation Components Explorers
-  storeFrontAndWorkshopGroups: require('../assets/storefront_and_workshop.png'),
+  // storeFrontAndWorkshopGroups: require('../assets/storefront_and_workshop.png'),
 
   // logos UI components tools
   doczLogo: require('../assets/logos/docz.svg'),
   reactCosmosLogo: require('../assets/logos/react_cosmos.png'),
-  reactStyleguidistLogo: require('../assets/logos/react_styleguidist.svg'),
+  // reactStyleguidistLogo: require('../assets/logos/react_styleguidist.svg'),
   storybookLogo: require('../assets/logos/storybook.svg'),
 
   // storybook
@@ -83,12 +85,13 @@ const images = {
   storybookIntro: require('../assets/storybook/storybook-intro.gif'),
   storybookExample: require('../assets/storybook/storybook-example.png'),
   doczExample: require('../assets/docz/docz_example.png'),
-  reactStyleguidistExample: require('../assets/styleguidist/react_styleguidist_example.gif'),
+  // reactStyleguidistExample: require('../assets/styleguidist/react_styleguidist_example.gif'),
   reactCosmosExample: require('../assets/cosmos/react_cosmos_example.gif'),
 
   // monkey island references
   dailyFarmer: require('../assets/daily_farmer.gif'),
-  monkeyIslandFire: require('../assets/monkey-island.gif')
+  iWantToBeAPirate: require('../assets/i_want_to_be_a_pirate.png'),
+  threeTrials: require('../assets/threeTrials.gif')
 };
 preloader({
   images
@@ -156,10 +159,22 @@ export default class Presentation extends React.Component {
         <Slide
           transition={['slide']}
           bgColor="background"
-          bgImage={images.personalInfo}
+          bgImage={images.personalInfo2}
           bgSize="cover"
           bgRepeat="no-repeat"
-        />
+        >
+          <img
+            className="object-floating"
+            src={images.octonaut}
+            style={{
+              height: '60%',
+              width: '40%',
+              marginLeft: 'auto',
+              objectFit: 'contain'
+            }}
+          />
+        </Slide>
+
         <Slide {...slideProps}>
           <Heading size={2} fit caps lineHeight={1} textColor="primary">
             Motivation
@@ -167,7 +182,7 @@ export default class Presentation extends React.Component {
           <List textColor="secondary">
             <Appear fid="1">
               <ListItem>
-                Transition of <b>page</b> to <b>component</b> development:
+                <b>Trend of UI frameworks</b>
                 <div
                   style={{
                     marginTop: '20px',
@@ -193,14 +208,25 @@ export default class Presentation extends React.Component {
             </Appear>
             <Appear fid="2">
               <ListItem>
-                <S type="bold">Bottom up construction:</S> Identity ->
-                Elements-> Components-> Composition -> Layout -> Pages
+                <S type="italic">Component-Driven Development</S>{' '}
+                <S type="bold">(CDD)</S>
+              </ListItem>
+            </Appear>
+            <Appear fid="3">
+              <ListItem>
+                <S type="bold">Bottom up construction</S>: Herarchy to compose
+                components and a page.
               </ListItem>
             </Appear>
           </List>
 
           <Notes>
             <ul>
+              <li>
+                So, why we need more tools?. It's because we have to adapt to
+                the times. It is not that we are obligated but we can take
+                advantage of it
+              </li>
               <li>
                 Trend in frontend UI development towards <b>components</b>
               </li>
@@ -210,10 +236,10 @@ export default class Presentation extends React.Component {
               </li>
 
               <li>
-                Component-Driven Development (CDD) is a development methodology
-                that anchors the build process around components. It is a
-                process that builds UIs from the “bottom up” by starting at the
-                level of components and ending at the level of pages or screens.
+                CDD is a development methodology that anchors the build process
+                around components. It is a process that builds UIs from the
+                “bottom up” by starting at the level of components and ending at
+                the level of pages or screens.
               </li>
               <li>
                 {
@@ -224,6 +250,55 @@ export default class Presentation extends React.Component {
           </Notes>
         </Slide>
 
+        <Slide {...slideProps}>
+          <Heading textColor="primary" lineHeight={2} size={2}>
+            Benefits
+          </Heading>
+          <List>
+            <Appear fid={1}>
+              <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
+                Break-down complexity
+                <EmojioneV4 text=":bread: :thumbsdown:" />
+              </ListItem>
+            </Appear>
+            <Appear fid={2}>
+              <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
+                Isolate from bussiness logic 🏝️
+              </ListItem>
+            </Appear>
+            <Appear fid={3}>
+              <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
+                Increase reusability of components
+                <EmojioneV4 text=":link:" />
+              </ListItem>
+            </Appear>
+            <Appear fid={4}>
+              <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
+                More easy to test and debug <EmojioneV4 text=":mag_right:" />
+              </ListItem>
+            </Appear>
+            <Appear fid={5}>
+              <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
+                <EmojioneV4 text="Speed projects :running:" />
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        {/* Example bottom up deconstruction*/}
+        <Slide {...slideProps}>
+          <Heading fit caps size={1} textColor="primary">
+            Bottom up construction
+          </Heading>
+          <Heading caps size={2} textColor="secondary">
+            Example
+          </Heading>
+          <Appear>
+            <Heading size={3} textColor="tertiary">
+              (totally argueable)
+            </Heading>
+          </Appear>
+        </Slide>
         <Slide {...slideProps}>
           <Heading
             size={3}
@@ -349,55 +424,34 @@ export default class Presentation extends React.Component {
           >
             6. Page
           </Heading>
-          <img src={images.cdd6} height="700px" />
+          <img src={images.cdd6} height="600px" />
         </Slide>
 
-        <Slide {...slideProps}>
-          <Heading textColor="primary" lineHeight={2} size={2}>
-            Benefits
-          </Heading>
-          <List>
-            <Appear fid={1}>
-              <ListItem>
-                Break-down complexity <EmojioneV4 text=":bread: :thumbsdown:" />
-              </ListItem>
-            </Appear>
-            <Appear fid={2}>
-              <ListItem>Isolate from bussiness logic 🏝️</ListItem>
-            </Appear>
-            <Appear fid={3}>
-              <ListItem>
-                Increase reusability of components <EmojioneV4 text=":link:" />
-              </ListItem>
-            </Appear>
-            <Appear fid={4}>
-              <ListItem>
-                More easy to test and debug <EmojioneV4 text=":mag_right:" />
-              </ListItem>
-            </Appear>
-            <Appear fid={5}>
-              <ListItem>
-                <EmojioneV4 text="Speed projects :running:" />
-              </ListItem>
-            </Appear>
-          </List>
-        </Slide>
+        <Slide
+          transition={['zoom']}
+          bgColor="black"
+          bgImage={images.iWantToBeAPirate}
+          bgSize="contain"
+          bgRepeat="no-repeat"
+          bgPosition="center"
+        />
+
+        <Slide
+          transition={['zoom']}
+          bgColor="black"
+          bgImage={images.threeTrials}
+          bgSize="contain"
+          bgRepeat="no-repeat"
+        />
 
         <Slide {...slideProps}>
-          {/* <Appear>
-  <div></div>
-          <div style={{background: "white"}}>
-            <img src={images.storeFrontAndWorkshopGroups}/>
-          </div>
-          </Appear> */}
-
           <Heading size={1} caps fit textColor="primary">
             Components Explorers
           </Heading>
 
           <Appear fid="1">
-            <Text>
-              <S type="bold">Definition:</S> Tools to work with a single
+            <Text style={{ marginTop: '30px' }}>
+              <S type="bold">"Definition":</S> Tools to work with a single
               component in isolation.
             </Text>
           </Appear>
@@ -411,9 +465,7 @@ export default class Presentation extends React.Component {
                   alignItems: 'center'
                 }}
               >
-                <img src={images.reactStyleguidistLogo} height="250px" />
-
-                <img src={images.storybookLogo} height="110px" />
+                <img src={images.storybookLogo} height="120px" />
               </div>
 
               <div
@@ -426,31 +478,15 @@ export default class Presentation extends React.Component {
                 <img
                   src={images.doczLogo}
                   height="110px"
-                  style={{ paddingRight: '40px' }}
+                  style={{ marginTop: '10px',
+                    marginRight: '20px' }}
                 />
 
-                <img src={images.reactCosmosLogo} height="180px" />
+                <img src={images.reactCosmosLogo} height="150px" />
               </div>
             </div>
           </Appear>
         </Slide>
-
-        {/* <Slide {...slideProps}>
-          <Heading size={1} textColor="primary">
-            Agenda
-          </Heading>
-          <List textColor="secondary">
-            <ListItem>Style guide and playgrounds</ListItem>
-            <ListItem>What it is available:
-              <List>
-                <ListItem>Storybook</ListItem>
-                <ListItem>Docz</ListItem>
-                <ListItem>React cosmos</ListItem>
-              </List>
-            </ListItem>
-
-          </List>
-        </Slide> */}
 
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
@@ -467,202 +503,6 @@ export default class Presentation extends React.Component {
             </ListItem>
           </List>
         </Slide>
-        {/* <Slide {...slideProps}>
-          <Heading size={2} textColor="primary">
-            What is Storybook?
-          </Heading>
-          <Text margin="20px" textColor="secondary" size={3} fit>
-            UI development environment to visualize components
-          </Text>
-          <img src={images.storybookIntro} height="450px" />
-        </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary">
-            Setup
-          </Heading>
-          <br />
-          <Terminal
-            isMaximized={false}
-            title="stevmachine@storybook: ~"
-            output={[
-              <Typist key="cd-my-proj" cursor={cursor}>
-                cd my-project
-              </Typist>,
-              <Typist key="npm-i-storybook" cursor={cursor}>
-                npm i -g @storybook/cli
-              </Typist>,
-              [
-                <div
-                  key="loader"
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    color: '#9D9D9D'
-                  }}
-                >
-                  <ScaleLoader color="#9D9D9D" loading height={15} />
-                  <p
-                    style={{
-                      margin: 0,
-                      marginLeft: '0.5em'
-                    }}
-                  >
-                    Installing dependencies...
-                  </p>
-                </div>,
-                <div style={{ color: '#33B969' }} key="installed">
-                  ⚡️ Dependencies installed!
-                </div>
-              ],
-              <Typist key="getstorybook" cursor={cursor}>
-                getstorybook
-              </Typist>,
-              <p key="simplest-way">
-                <span
-                  style={{
-                    backgroundColor: '#9D9D9D',
-                    marginLeft: '5px'
-                  }}
-                >
-                  getstorybook - the simplest way to add a storybook to your
-                  project.
-                </span>
-              </p>,
-              <span
-                key="step-1"
-                style={{
-                  marginLeft: '5px',
-                  color: '#9D9D9D'
-                }}
-              >
-                • Detecting project type. <Tick />
-              </span>,
-              <span
-                key="step-2"
-                style={{
-                  marginLeft: '5px',
-                  color: '#9D9D9D'
-                }}
-              >
-                • Adding storybook support to your "Create React App" based
-                project. <Tick />
-              </span>,
-              <span
-                key="step-3"
-                style={{
-                  marginLeft: '5px',
-                  color: '#9D9D9D'
-                }}
-              >
-                • Preparing to install dependencies. <Tick />
-              </span>,
-              <div
-                key="yarn-install"
-                style={{
-                  marginLeft: '10px',
-                  lineHeight: '10px',
-                  color: '#9D9D9D'
-                }}
-              >
-                <p>yarn install v1.5.1</p>
-                <p>[1/4] 🔍 Resolving packages...</p>
-                <p>[2/4] 🚚 Fetching packages...</p>
-                <p>[3/4] 🔗 Linking dependencies...</p>
-                <p>[4/4] 📃 Building fresh packages...</p>
-                <p>
-                  <span style={{ color: '#33B969' }}>success</span> Saved
-                  lockfile.
-                </p>
-                <p>✨ Done in 20.59s.</p>
-              </div>,
-              <span
-                key="step-4"
-                style={{
-                  marginLeft: '5px',
-                  color: '#9D9D9D'
-                }}
-              >
-                • Installing dependencies. <Tick />
-              </span>,
-              <div
-                key="step-5"
-                style={{
-                  marginLeft: '5px',
-                  color: '#9D9D9D'
-                }}
-              >
-                <p>To run your storybook, type:</p>
-                <span
-                  style={{
-                    marginLeft: '10px',
-                    backgroundColor: '#9D9D9D',
-                    color: '#FFFFFF'
-                  }}
-                >
-                  yarn run storybook
-                </span>
-                <p>
-                  For more information visit:{' '}
-                  <a style={{ color: '#21ADDD' }}>https://storybook.js.org</a>
-                </p>
-              </div>,
-              [
-                <div key="run-storybook">
-                  <Typist cursor={cursor}>yarn run storybook</Typist>
-                  <br />
-                </div>,
-                <div
-                  key="yarn-run"
-                  style={{
-                    marginLeft: '10px',
-                    lineHeight: '10px',
-                    color: '#9D9D9D'
-                  }}
-                >
-                  <p>yarn run v1.5.1</p>
-                  <p style={{ color: '#707070' }}>
-                    $ start-storybook -p 9009 -s public
-                  </p>
-                  <p>
-                    <Info /> @storybook/react v3.4.1
-                  </p>
-                  <p>
-                    <Info />
-                  </p>
-                  <p>
-                    <Info /> => Loading static files from:
-                    /Users/oritorri/Sapient/workshops/test/public .
-                  </p>
-                  <p>
-                    <Info /> => Loading custom addons config.
-                  </p>
-                  <p>
-                    <Info /> => Using default webpack setup based on "Create
-                    React App".
-                  </p>
-                  <p>webpack built ff898fa748423117d134 in 5901ms</p>
-                  <p>
-                    <Info /> Storybook started on =>{' '}
-                    <a style={{ color: '#21ADDD' }}>http://localhost:9009/</a>
-                  </p>
-                </div>
-              ],
-              <span key="empty-span" />
-            ]}
-          />
-        </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary">
-            Configuration
-          </Heading>
-          </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 50px">
-            Folder structure
-          </Heading>
-          <img src={images.folderStructure} />
-        </Slide>*/}
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary" margin="0 0 20px">
             Writing a story
@@ -676,30 +516,6 @@ export default class Presentation extends React.Component {
           </Heading>
           <img src={images.storybookExample} width="100%" />
         </Slide>
-        {/* <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 30px">
-            Sample config
-          </Heading>
-          <img src={images.basicConfig} />
-        </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 30px">
-            Advanced config
-          </Heading>
-          <img src={images.advancedConfig} width="100%"/>
-        </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 30px">
-            Custom webpack
-          </Heading>
-          <img src={images.customWebpack} width="100%" />
-        </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 30px">
-            Static export
-          </Heading>
-          <img src={images.buildStorybook} width="100%" />
-          </Slide>*/}
 
         {/* Docz Slides */}
         <Slide {...slideProps}>
@@ -746,8 +562,7 @@ export default class Presentation extends React.Component {
               title: 'Basic Usage'
             },
             { loc: [29, 37] },
-            { loc: [37, 47] },
-            { loc: [47, 57] }
+            { loc: [37, 47] }
           ]}
         />
 
@@ -777,36 +592,64 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide {...slideProps}>
-          <Heading size={3}>
+          <Heading size={4}>
             <Text textColor="primary" textSize="72px">
-              Cosmos is
+              Cosmos is{' '}
+              <S type="bold" textColor="secondary">
+                dev tool first
+              </S>
+              <EmojioneV4 text=":construction_worker: " />
             </Text>
-            <S type="bold" textColor="secondary">
-              dev tool first
-            </S>
-            <EmojioneV4 text=":construction_worker: " />{' '}
           </Heading>
           <List>
-            <ListItem>
-              Allows any combination of props, context and state
-            </ListItem>
-            <ListItem>
-              Mock every external dependency (eg. API responses, localStorage,
-              etc)
-            </ListItem>
-            <ListItem>
-              See app state evolve in real-time while interacting with running
-              instances
-            </ListItem>
+            <Appear fid="1">
+              <ListItem style={{ marginBottom: '10px' }}>
+                Render the component on the <b>starting point needed</b>.
+                <EmojioneV4 text=":sunglasses:" />
+              </ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem style={{ marginBottom: '10px' }}>
+                Allows any combination of props, context and state
+              </ListItem>
+            </Appear>
+            <Appear fid="3">
+              <ListItem>
+                Mock every external dependency e.g.:
+                <ul>
+                  <li>react context</li>
+                  <li>redux</li>
+                  <li>react router</li>
+                  <li>react apollo (Grahql)</li>
+                  <li>localStorage</li>
+                  <li>etc</li>
+                </ul>
+              </ListItem>
+            </Appear>
           </List>
+          <Notes>
+            <ul>
+              <li>
+                Each proxy does a more or less complex (or hacky) thing in the
+                background, things you probably already did before at least once
+                in your tests.
+              </li>
+              <li>
+                Mock XHR, or localStorage, or create MemoryRouter by hand, etc.
+                But with the fixture system you can compose all mocks using a
+                clean unified language (the fixture is JSON for the most part,
+                except for functions and any other JS type)
+              </li>
+            </ul>
+          </Notes>
         </Slide>
         <Slide {...slideProps} transition={['zoom']}>
-          <Heading size={2} fit caps lineHeight={1} textColor="primary">
+          <Heading size={4} fit caps lineHeight={1} textColor="primary">
             {'Fixture react-cosmos'}
           </Heading>
           <CodePane
             lang="json"
-            textSize="24px"
+            textSize="22px"
             source={`
           {
             props: {}
@@ -850,7 +693,7 @@ export default class Presentation extends React.Component {
 
         <Slide
           transition={['slide']}
-          bgColor="background"
+          bgColor="quaternary"
           bgImage={images.dailyFarmer}
           bgSize="contain"
           bgRepeat="no-repeat"

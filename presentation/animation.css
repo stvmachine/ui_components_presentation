@@ -1,0 +1,16 @@
+.object-floating {
+  animation: MoveUpDown 2.5s linear infinite;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: 50px;
+  }
+}
