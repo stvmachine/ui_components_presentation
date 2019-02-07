@@ -64,21 +64,10 @@ const images = {
   cdd5: require('../assets/CDD/5.png'),
   cdd6: require('../assets/CDD/6.png'),
 
-  // Explanation Components Explorers
-  // storeFrontAndWorkshopGroups: require('../assets/storefront_and_workshop.png'),
-
   // logos UI components tools
   doczLogo: require('../assets/logos/docz.svg'),
   reactCosmosLogo: require('../assets/logos/react_cosmos.png'),
   storybookLogo: require('../assets/logos/storybook.svg'),
-
-  // storybook
-  advancedConfig: require('../assets/storybook/advanced-config.png'),
-  basicConfig: require('../assets/storybook/basic-config.png'),
-  basicStory: require('../assets/storybook/basic-story.png'),
-  buildStorybook: require('../assets/storybook/build-storybook.png'),
-  customWebpack: require('../assets/storybook/custom-webpack.png'),
-  folderStructure: require('../assets/storybook/folder-structure.png'),
 
   // examples
   storybookIntro: require('../assets/storybook/storybook-intro.gif'),
@@ -91,6 +80,7 @@ const images = {
   iWantToBeAPirate: require('../assets/i_want_to_be_a_pirate.png'),
   threeTrials: require('../assets/threeTrials.gif')
 };
+
 preloader({
   images
 });
