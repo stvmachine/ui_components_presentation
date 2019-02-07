@@ -11,12 +11,12 @@ import {
   Text,
   Notes,
   CodePane,
-  S
+  S,
+  BlockQuote,
+  Quote,
+  Cite
 } from 'spectacle';
 
-// import Terminal from 'spectacle-terminal';
-// import Typist from 'react-typist';
-// import { ScaleLoader } from 'react-spinners';
 import CodeSlide from 'spectacle-code-slide';
 import preloader from 'spectacle/lib/utils/preloader';
 import createTheme from 'spectacle/lib/themes/default';
@@ -70,7 +70,6 @@ const images = {
   // logos UI components tools
   doczLogo: require('../assets/logos/docz.svg'),
   reactCosmosLogo: require('../assets/logos/react_cosmos.png'),
-  // reactStyleguidistLogo: require('../assets/logos/react_styleguidist.svg'),
   storybookLogo: require('../assets/logos/storybook.svg'),
 
   // storybook
@@ -85,7 +84,6 @@ const images = {
   storybookIntro: require('../assets/storybook/storybook-intro.gif'),
   storybookExample: require('../assets/storybook/storybook-example.png'),
   doczExample: require('../assets/docz/docz_example.png'),
-  // reactStyleguidistExample: require('../assets/styleguidist/react_styleguidist_example.gif'),
   reactCosmosExample: require('../assets/cosmos/react_cosmos_example.gif'),
 
   // monkey island references
@@ -102,17 +100,6 @@ const slideProps = {
   progressColor: 'tertiary',
   transition: ['fade']
 };
-
-// const cursor = {
-//   show: false,
-//   blink: true,
-//   element: '|',
-//   hideWhenDone: false,
-//   hideWhenDoneDelay: 1000
-// };
-
-// const Tick = () => <span style={{ color: '#33B969' }}>✓</span>;
-// const Info = () => <span style={{ color: '#33B969' }}>info</span>;
 
 const theme = createTheme(
   {
@@ -176,13 +163,13 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide {...slideProps}>
-          <Heading size={2} fit caps lineHeight={1} textColor="primary">
+          <Heading size={1} caps lineHeight={1} textColor="primary">
             Motivation
           </Heading>
           <List textColor="secondary">
             <Appear fid="1">
-              <ListItem>
-                <b>Trend of UI frameworks</b>
+              <ListItem style={{ paddingBottom: '10px' }}>
+                <b>Trend on modern UI Frameworks</b>
                 <div
                   style={{
                     marginTop: '20px',
@@ -207,15 +194,14 @@ export default class Presentation extends React.Component {
               </ListItem>
             </Appear>
             <Appear fid="2">
-              <ListItem>
-                <S type="italic">Component-Driven Development</S>{' '}
-                <S type="bold">(CDD)</S>
+              <ListItem style={{ paddingBottom: '10px' }}>
+                Transition of <b>page</b> to <b>component</b> development
               </ListItem>
             </Appear>
             <Appear fid="3">
-              <ListItem>
-                <S type="bold">Bottom up construction</S>: Herarchy to compose
-                components and a page.
+              <ListItem style={{ paddingBottom: '10px' }}>
+                <S type="bold">CDD </S>
+                <S type="italic">(Component-driven development)</S>
               </ListItem>
             </Appear>
           </List>
@@ -223,28 +209,16 @@ export default class Presentation extends React.Component {
           <Notes>
             <ul>
               <li>
-                So, why we need more tools?. It's because we have to adapt to
-                the times. It is not that we are obligated but we can take
-                advantage of it
-              </li>
-              <li>
                 Trend in frontend UI development towards <b>components</b>
               </li>
               <li>
-                React, Angular 2, Vue has established patterns for building UIs
-                out of well specified components parts
-              </li>
-
-              <li>
-                CDD is a development methodology that anchors the build process
-                around components. It is a process that builds UIs from the
-                “bottom up” by starting at the level of components and ending at
-                the level of pages or screens.
+                So rather than building a component “on-site” of the app screen
+                where it is first used, we use a tool that isolates that
+                component.
               </li>
               <li>
-                {
-                  'So rather than building a component “on-site” of the app screen where it is first used, you use a tool that isolates the one component.'
-                }
+                Example: Form where you have to activate pressing a button,
+                sounds like a pain after some updates
               </li>
             </ul>
           </Notes>
@@ -252,33 +226,39 @@ export default class Presentation extends React.Component {
 
         <Slide {...slideProps}>
           <Heading textColor="primary" lineHeight={2} size={2}>
-            Benefits
+            Benefits of CDD
           </Heading>
           <List>
             <Appear fid={1}>
               <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
                 Break-down complexity
-                <EmojioneV4 text=":bread: :thumbsdown:" />
+                <EmojioneV4
+                  text=":bread: :thumbsdown:"
+                  style={{
+                    marginLeft: '5px'
+                  }}
+                />
               </ListItem>
             </Appear>
             <Appear fid={2}>
-              <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
+              <ListItem textSize="48px" style={{ marginBottom: '10px' }}>
                 Isolate from bussiness logic 🏝️
               </ListItem>
             </Appear>
             <Appear fid={3}>
-              <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
-                Increase reusability of components
+              <ListItem textSize="48px" style={{ marginBottom: '10px' }}>
+                Increase re-usability
                 <EmojioneV4 text=":link:" />
               </ListItem>
             </Appear>
             <Appear fid={4}>
-              <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
-                More easy to test and debug <EmojioneV4 text=":mag_right:" />
+              <ListItem textSize="48px" style={{ marginBottom: '10px' }}>
+                Reduce design and test debt
+                <EmojioneV4 text=":mag_right:" />
               </ListItem>
             </Appear>
             <Appear fid={5}>
-              <ListItem textSize="48px" style={{ paddingBottom: '10px' }}>
+              <ListItem textSize="48px" style={{ marginBottom: '10px' }}>
                 <EmojioneV4 text="Speed projects :running:" />
               </ListItem>
             </Appear>
@@ -287,17 +267,45 @@ export default class Presentation extends React.Component {
 
         {/* Example bottom up deconstruction*/}
         <Slide {...slideProps}>
+          <BlockQuote>
+            <Quote> Not everything that shines is a component</Quote>
+            <Cite>anonymous</Cite>
+          </BlockQuote>
+
+          <Notes>
+            {`
+            Actually, I can say that at least it is necessary to define 
+            some basic elements before thinking about even starting to build the 
+            first component.
+            `}
+          </Notes>
+        </Slide>
+
+        <Slide {...slideProps}>
           <Heading fit caps size={1} textColor="primary">
             Bottom up construction
           </Heading>
           <Heading caps size={2} textColor="secondary">
-            Example
+            example
           </Heading>
           <Appear>
             <Heading size={3} textColor="tertiary">
               (totally argueable)
             </Heading>
           </Appear>
+
+          <Notes>
+            <ul>
+              <li>
+                The ultimate goal is to achieve a page...with pages you build
+                the app
+              </li>
+              <li>
+                The bottom up construction that i consider is at least 6 levels
+              </li>
+              <li>Totally argueable</li>
+            </ul>
+          </Notes>
         </Slide>
         <Slide {...slideProps}>
           <Heading
@@ -317,6 +325,14 @@ export default class Presentation extends React.Component {
             />
             <img src={images.cdd1_2} height="600px" />
           </div>
+
+          <Notes>
+            <ul>
+              <li>Brand colors</li>
+              <li>Typography</li>
+              <li>Logos and icons</li>
+            </ul>
+          </Notes>
         </Slide>
 
         <Slide {...slideProps}>
@@ -359,6 +375,14 @@ export default class Presentation extends React.Component {
                 objectFit: 'contain' }}
             />
           </div>
+          <Notes>
+            <ul>
+              <li>Inputs</li>
+              <li>Buttons</li>
+              <li>Paper element for example on the case of Material Design</li>
+            </ul>
+          </Notes>
+          >
         </Slide>
 
         <Slide {...slideProps}>
@@ -396,6 +420,12 @@ export default class Presentation extends React.Component {
               </div>
             </div>
           </div>
+
+          <Notes>
+            <ul>
+              <li>Component: Is a composition of elements more simple</li>
+            </ul>
+          </Notes>
         </Slide>
 
         <Slide {...slideProps}>
@@ -403,6 +433,18 @@ export default class Presentation extends React.Component {
             4. Composition
           </Heading>
           <img src={images.cdd4} height="600px" />
+
+          <Notes>
+            <ul>
+              <li>
+                This level define how we group components that we already
+                created. e.g.: lists.
+              </li>
+              <li>
+                It's not yet a page, because we need first define...(next slide)
+              </li>
+            </ul>
+          </Notes>
         </Slide>
 
         <Slide {...slideProps}>
@@ -414,6 +456,20 @@ export default class Presentation extends React.Component {
             5. Layout
           </Heading>
           <img src={images.cdd5} height="320px" />
+          <Notes>
+            <ul>
+              <li>Usually the layout is defined by the design.</li>
+              <li>
+                But as developers we have to decide the best way to organize the
+                space : Flex, bootstrap, CSS grid
+              </li>
+              <li>
+                It's argueable this order, because we usually need responsive
+                components and views{' '}
+              </li>
+              <li>...but is just a guide</li>
+            </ul>
+          </Notes>
         </Slide>
 
         <Slide {...slideProps}>
@@ -442,7 +498,9 @@ export default class Presentation extends React.Component {
           bgImage={images.threeTrials}
           bgSize="contain"
           bgRepeat="no-repeat"
-        />
+        >
+          <Notes>I really hope someone understands the reference</Notes>
+        </Slide>
 
         <Slide {...slideProps}>
           <Heading size={1} caps fit textColor="primary">
@@ -450,12 +508,13 @@ export default class Presentation extends React.Component {
           </Heading>
 
           <Appear fid="1">
-            <Text style={{ marginTop: '30px' }}>
-              <S type="bold">"Definition":</S> Tools to work with a single
-              component in isolation.
+            <Text style={{ marginTop: '30px',
+              textAlign: 'justify' }}
+            >
+              <S type="bold">"Definition":</S> Tools to compose single
+              components in isolation.
             </Text>
           </Appear>
-
           <Appear fid="2">
             <div>
               <div
@@ -465,7 +524,7 @@ export default class Presentation extends React.Component {
                   alignItems: 'center'
                 }}
               >
-                <img src={images.storybookLogo} height="120px" />
+                <img src={images.storybookLogo} height="130px" />
               </div>
 
               <div
@@ -477,14 +536,24 @@ export default class Presentation extends React.Component {
               >
                 <img
                   src={images.doczLogo}
-                  height="110px"
+                  height="120px"
                   style={{ marginTop: '10px',
                     marginRight: '20px' }}
                 />
 
-                <img src={images.reactCosmosLogo} height="150px" />
+                <img src={images.reactCosmosLogo} height="160px" />
               </div>
             </div>
+          </Appear>
+          <Appear fid="3">
+            <Text
+              style={{ textAlign: 'justify',
+                marginTop: '10px' }}
+              textSize="36px"
+            >
+              <S type="bold">Different features:</S> workshop, styleguide and
+              dev tools.
+            </Text>
           </Appear>
         </Slide>
 
@@ -500,6 +569,9 @@ export default class Presentation extends React.Component {
             </ListItem>
             <ListItem>
               Integrates <b>Jest</b> snapshot testing for all stories
+            </ListItem>
+            <ListItem>
+              Wrap components and allows to test on a safe way
             </ListItem>
           </List>
         </Slide>
@@ -626,6 +698,11 @@ export default class Presentation extends React.Component {
                 </ul>
               </ListItem>
             </Appear>
+            <Appear fid="4">
+              <ListItem>
+                Render the <b>raw component</b> without wrappers.
+              </ListItem>
+            </Appear>
           </List>
           <Notes>
             <ul>
@@ -690,6 +767,66 @@ export default class Presentation extends React.Component {
           // eslint-disable-next-line import/no-unresolved
           code={require('raw-loader!../assets/cosmos/code-example')}
         />
+
+        <Slide {...slideProps}>
+          <Heading size={1} textColor="primary">
+            Conclusions (1/2)
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                <b>Storybook:</b>
+                <ul>
+                  <li>
+                    Offers <b>workshop</b> and <b>styleguide</b>
+                  </li>
+                  <li>
+                    Good enought for almost <b>any size</b> of team or project
+                  </li>
+                  <li>A lot of addons and huge community.</li>
+                </ul>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ marginTop: '10px' }}>
+                <b>Docz:</b>
+                <ul>
+                  <li>
+                    <b>Posible scenarios</b>: Shared library, high use of
+                    propetary components, offer a style guide is the most
+                    important.
+                  </li>
+                  <li>
+                    <b>Easy to maintain</b>. With a minimal ammount of code you
+                    are done
+                  </li>
+                </ul>
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading size={1} textColor="primary">
+            Conclusions (2/2)
+          </Heading>
+          <Heading size={3} textColor="secondary">
+            React-cosmos
+          </Heading>
+          <List>
+            <ListItem>
+              Want to focus on the <b>debugging</b> and <b>testing</b>.
+            </ListItem>
+            <ListItem>
+              <b>Easily scalable</b> and <b>fixtures</b>.
+            </ListItem>
+            <ListItem>Mocks or you can use the real API call</ListItem>
+            <ListItem>
+              <b>Posible scenarios:</b> Multi-steps forms, multiple answers for
+              the same component, test coverage is important.
+            </ListItem>
+          </List>
+        </Slide>
 
         <Slide
           transition={['slide']}
