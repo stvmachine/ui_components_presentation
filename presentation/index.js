@@ -43,6 +43,8 @@ const images = {
   // eslint-disable-next-line camelcase
   cdd1_2: require('../assets/CDD/1-2.png'),
   // eslint-disable-next-line camelcase
+  cdd1_3: require('../assets/CDD/1-3.png'),
+  // eslint-disable-next-line camelcase
   cdd2_1: require('../assets/CDD/2-1.png'),
   // eslint-disable-next-line camelcase
   cdd2_2: require('../assets/CDD/2-2.png'),
@@ -76,6 +78,7 @@ const images = {
   reactCosmosExample: require('../assets/cosmos/react_cosmos_example.gif'),
 
   // monkey island references
+  treasureMapMI: require('../assets/treasure_map.jpg'),
   dailyFarmer: require('../assets/daily_farmer.gif'),
   iWantToBeAPirate: require('../assets/i_want_to_be_a_pirate.png'),
   threeTrials: require('../assets/threeTrials.gif')
@@ -194,6 +197,12 @@ export default class Presentation extends React.Component {
                 <S type="italic">(Component-driven development)</S>
               </ListItem>
             </Appear>
+            <Appear fid="4">
+              <ListItem style={{ paddingBottom: '10px' }}>
+                <S type="bold">UI Components Explorers:</S> Tools that help to
+                compose components (e.g. workshop, styleguide and dev tools).
+              </ListItem>
+            </Appear>
           </List>
 
           <Notes>
@@ -255,6 +264,58 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
+        <Slide
+          transition={['zoom']}
+          bgColor="black"
+          bgImage={images.iWantToBeAPirate}
+          bgSize="contain"
+          bgRepeat="no-repeat"
+          bgPosition="center"
+        />
+
+        <Slide
+          transition={['zoom']}
+          bgColor="black"
+          bgImage={images.threeTrials}
+          bgSize="contain"
+          bgRepeat="no-repeat"
+        >
+          <Notes>I really hope someone understands the reference</Notes>
+        </Slide>
+
+        <Slide {...slideProps}>
+          <Heading size={1} caps fit textColor="primary">
+            Components Explorers
+          </Heading>
+
+          <Appear fid="1">
+            <div
+              style={{
+                marginTop: '30px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}
+            >
+              <img src={images.storybookLogo} height="160px" />
+
+              <img
+                src={images.doczLogo}
+                height="140px"
+                style={{ marginTop: '20px' }}
+              />
+              <img
+                src={images.reactCosmosLogo}
+                style={{
+                  marginTop: '30px'
+                }}
+                height="160px"
+              />
+            </div>
+          </Appear>
+        </Slide>
+
         {/* Example bottom up deconstruction*/}
         <Slide {...slideProps}>
           <BlockQuote>
@@ -313,7 +374,12 @@ export default class Presentation extends React.Component {
               height="600px"
               style={{ marginRight: '20px' }}
             />
-            <img src={images.cdd1_2} height="600px" />
+            <div style={{ display: 'flex',
+              flexDirection: 'column' }}
+            >
+              <img src={images.cdd1_2} height="500px" />
+              <img src={images.cdd1_3} style={{ paddingTop: '30px' }} />
+            </div>
           </div>
 
           <Notes>
@@ -474,78 +540,12 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide
-          transition={['zoom']}
+          transition={['slide']}
           bgColor="black"
-          bgImage={images.iWantToBeAPirate}
+          bgImage={images.treasureMapMI}
           bgSize="contain"
           bgRepeat="no-repeat"
-          bgPosition="center"
         />
-
-        <Slide
-          transition={['zoom']}
-          bgColor="black"
-          bgImage={images.threeTrials}
-          bgSize="contain"
-          bgRepeat="no-repeat"
-        >
-          <Notes>I really hope someone understands the reference</Notes>
-        </Slide>
-
-        <Slide {...slideProps}>
-          <Heading size={1} caps fit textColor="primary">
-            Components Explorers
-          </Heading>
-
-          <Appear fid="1">
-            <Text style={{ marginTop: '30px',
-              textAlign: 'justify' }}
-            >
-              <S type="bold">"Definition":</S> Tools to compose single
-              components in isolation.
-            </Text>
-          </Appear>
-          <Appear fid="2">
-            <div>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                <img src={images.storybookLogo} height="130px" />
-              </div>
-
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                <img
-                  src={images.doczLogo}
-                  height="120px"
-                  style={{ marginTop: '10px',
-                    marginRight: '20px' }}
-                />
-
-                <img src={images.reactCosmosLogo} height="160px" />
-              </div>
-            </div>
-          </Appear>
-          <Appear fid="3">
-            <Text
-              style={{ textAlign: 'justify',
-                marginTop: '10px' }}
-              textSize="36px"
-            >
-              <S type="bold">Different features:</S> workshop, styleguide and
-              dev tools.
-            </Text>
-          </Appear>
-        </Slide>
 
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
