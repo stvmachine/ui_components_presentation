@@ -74,6 +74,7 @@ const images = {
   // examples
   storybookIntro: require('../assets/storybook/storybook-intro.gif'),
   storybookExample: require('../assets/storybook/storybook-example.png'),
+  basicStory: require('../assets/storybook/basic-story.png'),
   doczExample: require('../assets/docz/docz_example.png'),
   reactCosmosExample: require('../assets/cosmos/react_cosmos_example.gif'),
 
@@ -666,7 +667,7 @@ export default class Presentation extends React.Component {
           <List>
             <Appear fid="1">
               <ListItem style={{ marginBottom: '10px' }}>
-                Render the component on the <b>starting point needed</b>.
+                Render on the <b>starting point needed</b>.
                 <EmojioneV4 text=":sunglasses:" />
               </ListItem>
             </Appear>
@@ -682,7 +683,7 @@ export default class Presentation extends React.Component {
                   <li>react context</li>
                   <li>redux</li>
                   <li>react router</li>
-                  <li>react apollo (Grahql)</li>
+                  <li>react apollo (GrahQL)</li>
                   <li>localStorage</li>
                   <li>etc</li>
                 </ul>
@@ -740,23 +741,6 @@ export default class Presentation extends React.Component {
           `}
           />
         </Slide>
-
-        <CodeSlide
-          textSize=".8em"
-          ranges={[
-            {
-              loc: [0, 17],
-              title: <EmojioneV4 text="Cosmos :heart: enzyme" size={32} />
-            },
-            { loc: [0, 5] },
-            { loc: [5, 10] },
-            { loc: [10, 17],
-              title: 'It\'s possible to test urls too' }
-          ]}
-          lang="jsx"
-          // eslint-disable-next-line import/no-unresolved
-          code={require('raw-loader!../assets/cosmos/code-example')}
-        />
 
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
@@ -818,6 +802,23 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
+        <Slide {...slideProps}>
+          <Heading size={1} textColor="primary">
+            Links of the examples
+          </Heading>
+          <List>
+            <ListItem>
+              <S type="bold">React Cosmos:</S>
+              <br />
+              https://github.com/stvmachine/react-cosmos-example
+            </ListItem>
+            <ListItem>
+              <S type="bold">Docz</S>:<br />
+              https://github.com/stvmachine/typescript_docz_example
+            </ListItem>
+          </List>
+        </Slide>
+
         <Slide
           transition={['slide']}
           bgColor="quaternary"
@@ -825,6 +826,7 @@ export default class Presentation extends React.Component {
           bgSize="contain"
           bgRepeat="no-repeat"
         />
+
       </Deck>
     );
   }
